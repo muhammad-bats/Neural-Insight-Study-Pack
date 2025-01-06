@@ -84,3 +84,280 @@ Before proceeding with visualizations, the dataset must be imported into the Pyt
   print(df)
 ```
 This Python script loads the dataset and stores it in a Pandas DataFrame `df`, making it ready for analysis and visualization tasks.
+
+### **Bar Chart Visualization**
+Bar charts are a simple yet effective way to visualize categorical data, showing the distribution of data points across different categories. They are often used to compare quantities or frequencies between discrete categories, making it easy to identify patterns or differences.
+
+Here are examples of how to plot a bar chart using both Matplotlib and Seaborn for the e-commerce dataset, specifically for the total quantity sold with each payment_method.
+```python
+  import pandas as pd
+  # Using Matplot
+
+  # Load the sample_ecommerce_dataset.csv file
+  data = pd.read_csv('sample_ecommerce_dataset.csv')
+
+  # Create DataFrame
+  df = pd.DataFrame(data)
+
+  # Count orders by Payment_Method
+  payment_method_counts = df['Payment_Method'].value_counts()
+  
+  # Plotting
+  plt.bar(payment_method_counts.index, payment_method_counts.values, color='skyblue')
+  plt.xlabel('Payment Method')
+  plt.ylabel('Number of Orders')
+  plt.title('Orders by Payment Method')
+  plt.xticks(rotation=45)
+  plt.tight_layout()
+  
+  # Show the plot
+  plt.show()
+```
+
+```python
+  import pandas as pd
+  import seaborn as sns
+  import matplotlib.pyplot as plt
+  # Using Seaborn
+
+  # Load the sample_ecommerce_dataset.csv file
+  data = pd.read_csv('sample_ecommerce_dataset.csv')
+
+  # Create DataFrame
+  df = pd.DataFrame(data)
+  
+  # Count orders by Payment_Method
+  payment_method_counts = df['Payment_Method'].value_counts().reset_index()
+  payment_method_counts.columns = ['Payment_Method', 'Number_of_Orders']
+  
+  # Plotting with Seaborn
+  sns.barplot(x='Payment_Method', y='Number_of_Orders', data=payment_method_counts, palette='viridis')
+  plt.xlabel('Payment Method')
+  plt.ylabel('Number of Orders')
+  plt.title('Orders by Payment Method')
+  plt.xticks(rotation=45)
+  plt.tight_layout()
+  
+  # Show the plot
+  plt.show()
+```
+
+### **Line Chart Visualization**
+Line charts are useful for visualizing trends over a continuous range, such as time or ordered categories. They are particularly effective when you want to highlight relationships between two variables or show changes in a variable over time or categories.
+
+This example, plots line graphs of discounts for the "Clothing" category in the dataset against time, considering only the data from March 2024 to September 2024
+```python
+  import pandas as pd
+  import matplotlib.pyplot as plt
+  
+  # Load the sample_ecommerce_dataset.csv file
+    data = pd.read_csv('sample_ecommerce_dataset.csv')
+  
+  # Create DataFrame
+  df = pd.DataFrame(data)
+  
+  # Convert 'Purchase_Date' to datetime format
+  df['Purchase_Date'] = pd.to_datetime(df['Purchase_Date'], format='%m/%d/%Y')
+  
+  # Filter data for Clothing category and date range
+  filtered_df = df[(df['Category'] == 'Clothing') &
+                   (df['Purchase_Date'] >= '2024-03-01') &
+                   (df['Purchase_Date'] <= '2024-09-30')]
+  
+  # Sort data by Purchase_Date
+  filtered_df = filtered_df.sort_values('Purchase_Date')
+  
+  # Plotting
+  plt.plot(filtered_df['Purchase_Date'], filtered_df['Discount (%)'], marker='o', color='blue')
+  plt.xlabel('Purchase Date')
+  plt.ylabel('Discount (%)')
+  plt.title('Discount Trends for Clothing (March - September 2024)')
+  plt.grid()
+  plt.tight_layout()
+  
+  # Show the plot
+  plt.show()
+```
+
+```python
+  import pandas as pd
+  import seaborn as sns
+  import matplotlib.pyplot as plt
+  # Using Seaborn
+  
+  # Load the sample_ecommerce_dataset.csv file
+  data = pd.read_csv('sample_ecommerce_dataset.csv')
+  
+  # Create DataFrame
+  df = pd.DataFrame(data)
+  
+  # Convert 'Purchase_Date' to datetime format
+  df['Purchase_Date'] = pd.to_datetime(df['Purchase_Date'], format='%m/%d/%Y')
+  
+  # Filter data for Clothing category and date range
+  filtered_df = df[(df['Category'] == 'Clothing') &
+                   (df['Purchase_Date'] >= '2024-03-01') &
+                   (df['Purchase_Date'] <= '2024-09-30')]
+  
+  # Sort data by Purchase_Date
+  filtered_df = filtered_df.sort_values('Purchase_Date')
+  
+  # Plotting with Seaborn
+  sns.lineplot(x='Purchase_Date', y='Discount (%)', data=filtered_df, marker='o', color='purple')
+  plt.xlabel('Purchase Date')
+  plt.ylabel('Discount (%)')
+  plt.title('Discount Trends for Clothing (March - September 2024)')
+  plt.xticks(rotation=45)
+  plt.grid()
+  plt.tight_layout()
+  
+  # Show the plot
+  plt.show()
+```
+
+### **Pie Chart Visualization**
+Pie charts are used to represent data as proportional slices of a whole, making it easy to see the relative size of categories.
+
+This example visualizes the proportion of categories from all orders of a specific user (*a83c145c*)
+```python
+  import pandas as pd
+  import matplotlib.pyplot as plt
+  # Using Matplot
+  
+  # Load the sample_ecommerce_dataset.csv file
+  data = pd.read_csv('sample_ecommerce_dataset.csv')
+  
+  # Create DataFrame
+  df = pd.DataFrame(data)
+  
+  # Filter data for the specific User_ID
+  user_id = 'a83c145c'
+  filtered_df = df[df['User_ID'] == user_id]
+  
+  # Count the occurrences of each category for the user
+  category_counts = filtered_df['Category'].value_counts()
+  
+  # Plotting the pie chart
+  plt.figure(figsize=(8, 6))
+  plt.pie(category_counts, labels=category_counts.index, autopct='%1.1f%%', startangle=140, colors=plt.cm.Paired.colors)
+  plt.title(f'Order Categories for User ID: {user_id}')
+  plt.tight_layout()
+  
+  # Show the plot
+  plt.show()
+```
+
+```python
+  import pandas as pd
+  import matplotlib.pyplot as plt
+  import seaborn as sns
+  # Using Seaborn
+  
+  # Load the sample_ecommerce_dataset.csv file
+    data = pd.read_csv('sample_ecommerce_dataset.csv')
+  
+  # Create DataFrame
+  df = pd.DataFrame(data)
+  
+  # Filter data for the specific User_ID
+  user_id = 'a83c145c'
+  filtered_df = df[df['User_ID'] == user_id]
+  
+  # Count the occurrences of each category for the user
+  category_counts = filtered_df['Category'].value_counts()
+  
+  # Apply Seaborn style
+  sns.set_theme(style="whitegrid")
+  
+  # Plotting the pie chart
+  plt.figure(figsize=(8, 6))
+  plt.pie(category_counts, labels=category_counts.index, autopct='%1.1f%%', startangle=140, colors=sns.color_palette("pastel"))
+  plt.title(f'Order Categories for User ID: {user_id}')
+  plt.tight_layout()
+  
+  # Show the plot
+  plt.show()
+```
+
+### **Scatter Plot Visualization**
+Scatter plots are used to visualize relationships or correlations between two continuous variables.
+
+This example analyzes the relationship between the prices and all orders in the Beauty category.
+```python
+  import pandas as pd
+  import matplotlib.pyplot as plt
+  # Using Matplot
+  
+  # Load the sample_ecommerce_dataset.csv file
+    data = pd.read_csv('sample_ecommerce_dataset.csv')
+  
+  # Create DataFrame
+  df = pd.DataFrame(data)
+  
+  # Filter data for the "Beauty" category
+  beauty_df = df[df['Category'] == 'Beauty']
+  
+  # Plotting the scatter plot
+  plt.figure(figsize=(8, 6))
+  plt.scatter(beauty_df.index, beauty_df['Price (Rs.)'], color='blue', edgecolors='black', alpha=0.7)
+  plt.title('Scatter Plot: Prices vs Orders (Beauty Category)', fontsize=14)
+  plt.xlabel('Order Index', fontsize=12)
+  plt.ylabel('Price (Rs.)', fontsize=12)
+  plt.grid(True, linestyle='--', alpha=0.5)
+  
+  # Annotating points (optional)
+  for i, price in enumerate(beauty_df['Price (Rs.)']):
+      plt.text(beauty_df.index[i], price + 20, f'Rs.{price}', fontsize=8, ha='center')
+  
+  # Show the plot
+  plt.tight_layout()
+  plt.show()
+```
+
+```python
+  import pandas as pd
+  import matplotlib.pyplot as plt
+  import seaborn as sns
+  # Using Seaborn
+  
+  # Load the sample_ecommerce_dataset.csv file
+    data = pd.read_csv('sample_ecommerce_dataset.csv')
+  
+  # Create DataFrame
+  df = pd.DataFrame(data)
+  
+  # Filter data for the "Beauty" category
+  beauty_df = df[df['Category'] == 'Beauty']
+  
+  # Apply Seaborn theme
+  sns.set_theme(style="whitegrid")
+  
+  # Plotting the scatter plot
+  plt.figure(figsize=(8, 6))
+  sns.scatterplot(data=beauty_df, x=beauty_df.index, y='Price (Rs.)', hue='Category', palette='deep', s=100, edgecolor='black')
+  plt.title('Scatter Plot: Prices vs Orders (Beauty Category)', fontsize=14)
+  plt.xlabel('Order Index', fontsize=12)
+  plt.ylabel('Price (Rs.)', fontsize=12)
+  
+  # Customize legend
+  plt.legend(title='Category', loc='upper left')
+  
+  # Show the plot
+  plt.tight_layout()
+  plt.show()
+```
+
+### **Histogram Visualization**
+Histograms are used to display the distribution of a single variable by dividing it into intervals or bins.
+
+In this example, we will visualize the total sales (calculated as price × quantity) for each category that used *Credit Card* payment_method, in the dataset.
+```python
+```
+
+```python
+```
+
+This repository has directories made for each Visualization Technique discussed, the directories contain sample python files for matplot and seaborn which were discussed in the guide. 
+For additional information and hands-on practice with these Python libraries, refer to their official documentation. These resources provide comprehensive guides, examples, and best practices to help you master data visualization using libraries like Matplotlib and Seaborn.
+- [Matplotlib - Visualization with Python](https://matplotlib.org)
+- [Seaborn - Statistical Data Visualization](https://seaborn.pydata.org)
