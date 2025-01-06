@@ -433,7 +433,14 @@ In this example, we will visualize the total sales (calculated as price × quant
   plt.show()
 ```
 
-This repository includes dedicated directories for each visualization technique covered in the guide. Each directory contains sample Python scripts demonstrating the implementation of the techniques using both Matplotlib and Seaborn, providing practical examples to enhance your understanding.
+This repository includes dedicated directories for each visualization technique covered in the guide. Each directory contains sample Python scripts demonstrating the implementation of the techniques using both Matplotlib and Seaborn, providing practical examples to enhance your understanding. 
+
+Additionally, A `requirements.txt` file is included in the repository to simplify the installation process for all necessary libraries and dependencies. To install them, run the following command in your Command Prompt or Terminal:
+```bash
+  pip install -r requirements.txt
+```
+This command will read the `requirements.txt` file and install all specified packages into the active Conda environment.
+> Alternatively, you can Git Clone the repository to install all the dependencies and libraries from the `requirements.txt` file.
 
 For additional information and hands-on practice with these Python libraries, refer to their official documentation. These resources provide comprehensive guides, examples, and best practices to help you master data visualization using libraries like Matplotlib and Seaborn.
 - [Matplotlib - Visualization with Python](https://matplotlib.org)
