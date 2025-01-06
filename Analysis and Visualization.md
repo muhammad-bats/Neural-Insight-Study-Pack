@@ -35,7 +35,7 @@ After obtaining your API credentials, ensure that the kaggle library is installe
 ```bash
   pip install kaggle
 ```
-> Refer to Study Pack 1 for more information on Conda Environments.
+> Refer to `Artificial Intelligence and Computer Vision` branch for more information on Conda Environments.
 
 Once the library is installed, you can download a dataset from Kaggle using the following Python script:
 ```python
