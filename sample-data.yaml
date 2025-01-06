@@ -1,0 +1,7 @@
+train: Users/dataset/train # path directroy to your 'train' folder
+val: Users/dataset/val # path directroy to your 'val' folder
+
+is_coco: False # if using a dataset like the COCO datset, then set this to True
+
+nc: 3  # Number of classes in dataset
+names: ['class1', 'class2', 'class3'] # list of your class names
