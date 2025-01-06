@@ -79,7 +79,7 @@ To deactivate the Conda Environment at any time, simply run the following statem
 ```bash
   conda deactivate yolo11
 ```
-This statement will deactivate the `yolo11` environment and return you to your system default environment. Remember, to install any necesaary libraries or dependencies in the `yolo11` Conda environment, the environment must first be activated. This ensures that all installations and changes are applied specifically within the `yolo11` environment.
+This statement will deactivate the `yolo11` environment and return you to your system's default environment. Remember, to install any necessary libraries or dependencies in the `yolo11` Conda environment, the environment must first be activated. This ensures that all installations and changes are applied specifically within the `yolo11` environment.
 ### Step 4: Install the Ultralytics YOLO Library
 Once your Conda environment is activated, the next step is to install the Ultralytics YOLO library. Ultralytics is the developer behind the YOLO models. By installing this library, you gain access to pre-trained YOLO models as well as the ability to train your own models with custom datasets.
 
@@ -89,6 +89,8 @@ Run the following command to install the Ultralytics package:
   pip install ultralytics
 ```
 This command will install the latest version of the YOLO implementation along with any necessary dependencies.
+
+The repository includes a `yolosetup.cmd` file for Windows and a `yolosetup.sh` file for macOS, both designed to streamline the setup process for YOLO models. By downloading and executing the appropriate file for your operating system, you can automatically configure a Conda Python Environment tailored for YOLO.
 
 #**Data Handling and Image Manipulation**
 **Data Handling and Image Manipulation** is a crucial aspect of working with computer vision tasks, particularly in training machine learning models like YOLO. It involves the process of efficiently organizing, pre-processing, and augmenting datasets, especially when dealing with large volumes of data. In the context of image manipulation, this includes techniques for correcting data corruption and mitigating image distortions. Image distortions can negatively affect model accuracy, so handling and enhancing image data through methods like resizing, normalizing, or applying filters is essential. Proper data handling ensures that the model is trained on high-quality, relevant data, which is critical for improving performance, robustness, and generalization.
@@ -212,7 +214,7 @@ Once the Conda Environment is active, install LabelImg using the following comma
 ```
 This will install the LabelImg package into your active `yolo11` Conda environment, allowing you to use it for annotating images for YOLO object detection.
 ### Step 2: Launch LabelImg
-Once LabelImg is installed, you can launch it by running the following commnad in the active Conda Environment terminal:
+Once LabelImg is installed, you can launch it by running the following command in the active Conda Environment terminal:
 ```bash
   labelimg
 ```
@@ -272,14 +274,14 @@ Data configuration involves creating a data.yaml file, which is essential for li
 Here’s an improved example of what a data.yaml file might look like:
 ```yaml
   train: Users/dataset/train # path directroy to your 'train' folder
-  val: Users/dataset/images/val # path directroy to your 'val' folder
+  val: Users/dataset/val # path directroy to your 'val' folder
 
   is_coco: False # if using a dataset like the COCO datset, then set this to True
 
-  nc: 5  # Number of classes in dataset
-  names: ['class1', 'class2', 'class3', 'class4', 'class5'] # list of your class names
+  nc: 3  # Number of classes in dataset
+  names: ['class1', 'class2', 'class3'] # list of your class names
 ```
-This `data.yaml` file helps the YOLO model understand how to access and interpret your dataset during training.
+This `data.yaml` file helps the YOLO model understand how to access and interpret your dataset during training. A sample `data.yaml` file is included in this repository to serve as a reference and guide for configuring your dataset. 
 
 ### **Step 4: Train the Model**
 To start training your custom YOLO model, follow these steps:
@@ -306,7 +308,7 @@ Once the environment is activated, you can start the training process using the 
 - `imgsz=640`: Specifies the input image size (640x640 pixels).
 - `batch=8`: Sets the batch size for training (number of images processed at a time).
 
-Alternatively, you can run the training using a Python script in an editor like **VS Code**. Make sure your Conda environment is set as the interpreter for the project. Here's a sample script:
+Alternatively, you can run the training process using a Python script in an editor like **VS Code**. Make sure your Conda environment is set as the interpreter for the project. Here's a sample script:
 
 ```python
   import ultralytics
@@ -319,6 +321,8 @@ Alternatively, you can run the training using a Python script in an editor like 
   # Train the model
   results = model.train(data="path/to/your/data.yaml", epochs=80, imgsz=640)
 ```
+
+This repository includes a `sample-training.py` file to provide a practical example and guide for training your model.
 
 In this script:
 - `YOLO("yolo11n.yaml")`: Builds a new model from the configuration file.
