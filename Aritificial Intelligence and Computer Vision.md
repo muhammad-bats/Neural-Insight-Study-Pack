@@ -42,7 +42,7 @@ Computer vision powers tasks like medical imaging in healthcare, such as detecti
 
 Object detection and tracking are among its most critical capabilities. Object detection identifies and locates objects within an image using bounding boxes, while tracking follows these objects across video frames. Together, they underpin real-time applications like self-driving cars, sports analytics, and surveillance systems. Modern algorithms like YOLO (You Only Look Once) have revolutionized this domain, offering high-speed and accurate object detection for dynamic environments.
 
-#**You Only Look Once (YOLO)**
+# **You Only Look Once (YOLO)**
 ### What is YOLO?
 YOLO (You Only Look Once) is a state-of-the-art, real-time object detection algorithm that has transformed the way computers identify and locate objects in images and videos. Unlike traditional methods that use a multi-step approach to detect objects, YOLO treats object detection as a single regression problem. It divides the image into a grid and predicts bounding boxes and class probabilities simultaneously for each grid cell, making it exceptionally fast and efficient.
 
@@ -92,7 +92,7 @@ This command will install the latest version of the YOLO implementation along wi
 
 The repository includes a `yolosetup.cmd` file for Windows and a `yolosetup.sh` file for macOS, both designed to streamline the setup process for YOLO models. By downloading and executing the appropriate file for your operating system, you can automatically configure a Conda Python Environment tailored for YOLO.
 
-#**Data Handling and Image Manipulation**
+# **Data Handling and Image Manipulation**
 **Data Handling and Image Manipulation** is a crucial aspect of working with computer vision tasks, particularly in training machine learning models like YOLO. It involves the process of efficiently organizing, pre-processing, and augmenting datasets, especially when dealing with large volumes of data. In the context of image manipulation, this includes techniques for correcting data corruption and mitigating image distortions. Image distortions can negatively affect model accuracy, so handling and enhancing image data through methods like resizing, normalizing, or applying filters is essential. Proper data handling ensures that the model is trained on high-quality, relevant data, which is critical for improving performance, robustness, and generalization.
 
 ## **Data Corruption and Image Distortions**
@@ -194,6 +194,18 @@ To correct perspective and skewing distortions, you can apply geometric transfor
   cv2.imwrite("restored_image.png", restored_image)
 ```
 This correction restores the image's proper alignment by fixing distortions caused by perspective warping, ensuring the image is more accurate and suitable for machine learning tasks.
+
+a `requirements.txt` file has been included in this repository to facilitate the installation of all necessary libraries. To streamline the installation of all necessary dependencies and libraries for Data Handling and Image Manipulation in your project, follow these steps:
+1. Activate the Conda Environment: Ensure that your `yoloenv` Conda environment is activated. If it's not already active, you can activate it using the following command:
+   ```bash
+     conda activate yoloenv
+   ```
+2. Install Dependencies from `requirements.txt`: With the environment activated, install the required packages listed in your `requirements.txt` file by running:
+   ```bash
+     pip install -r requirements.txt
+   ```
+   This command will read the `requirements.txt` file and install all specified packages into the active Conda environment.
+> Alternatively, you can Git Clone the repository to install all the dependencies and libraries from the `requirements.txt` file. 
 
 ## **Data Labelling and Annotation**
 
@@ -322,15 +334,13 @@ Alternatively, you can run the training process using a Python script in an edit
   results = model.train(data="path/to/your/data.yaml", epochs=80, imgsz=640)
 ```
 
-This repository includes a `sample-training.py` file to provide a practical example and guide for training your model.
-
 In this script:
 - `YOLO("yolo11n.yaml")`: Builds a new model from the configuration file.
 - `YOLO("yolo11n.pt")`: Loads a pre-trained model if you prefer fine-tuning.
 - `results = model.train(...)`: Starts the training with the dataset path and other parameters.
 
-This method allows you to train your model programmatically and gives you flexibility in managing the training process.
+This method allows you to train your model programmatically and gives you flexibility in managing the training process. This repository includes a `sample-training.py` file to provide a practical example and guide for training your model.
 
 Once training starts, the model will learn to detect the objects based on the provided dataset, and you can monitor its progress and performance. After the training process is complete, a `runs` directory will be created automatically by the program. This directory contains various subdirectories with evaluation metrics and logs from the validation phase of the training.
 
-Within this folder, you'll find the `best.pt` file. This file represents the best version of the model based on validation performance across all training epochs. It contains the model's weights, which were learned during the training process, and it can be used for inference or further fine-tuning.
+Within this folder, you'll find the `best.pt` file. This file represents the best version of the model based on validation performance across all training epochs. It contains the model's weights, which were learned during the training process, and it can be used for inference or further fine-tuning. 
