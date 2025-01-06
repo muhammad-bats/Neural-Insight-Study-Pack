@@ -195,7 +195,7 @@ To correct perspective and skewing distortions, you can apply geometric transfor
 ```
 This correction restores the image's proper alignment by fixing distortions caused by perspective warping, ensuring the image is more accurate and suitable for machine learning tasks.
 
-a `requirements.txt` file has been included in this repository to facilitate the installation of all necessary libraries. To streamline the installation of all necessary dependencies and libraries for Data Handling and Image Manipulation in your project, follow these steps:
+a `requirements.txt` file has been included in this repository to facilitate the installation of all necessary libraries. To streamline the installation of all necessary dependencies and libraries for Data Handling and Image Manipulation, follow these steps:
 1. Activate the Conda Environment: Ensure that your `yoloenv` Conda environment is activated. If it's not already active, you can activate it using the following command:
    ```bash
      conda activate yoloenv
