@@ -58,28 +58,28 @@ You can install Anaconda from the official website:
 > Alternatively follow this URL: https://www.anaconda.com/download
 
 ### Step 2: Create a Conda Environment
-Once Anaconda is installed, open the **Anaconda Prompt** (Windows) or a terminal (macOS/Linux) and create a new Conda environment specifically for YOLO. Run the following command to create an environment named `yolo11` (you can choose a different name if desired):
+Once Anaconda is installed, open the **Anaconda Prompt** (Windows) or a terminal (macOS/Linux) and create a new Conda environment specifically for YOLO. Run the following command to create an environment named `yoloenv` (you can choose a different name if desired):
 
 ```bash
-  conda create --name yolo11 python=3.8
+  conda create --name yoloenv python=3.8
 ```
 
-In this command, `--name yolo11` specifies the environment's name, and `python=3.8` ensures you're using a compatible version of Python for YOLO.
+In this command, `--name yoloenv` specifies the environment's name, and `python=3.8` ensures you're using a compatible version of Python for YOLO.
 
 ### Step 3: Activate the Environment
 To activate the newly created environment, run:
 
 ```bash
-  conda activate yolo11
+  conda activate yoloenv
 ```
 
-Your terminal will switch to the `yolo11` environment, where you can install the necessary libraries and dependencies for YOLO.
+Your terminal will switch to the `yoloenv` environment, where you can install the necessary libraries and dependencies for YOLO.
 
 To deactivate the Conda Environment at any time, simply run the following statement in the **Anaconda Prompt** or terminal
 ```bash
-  conda deactivate yolo11
+  conda deactivate yoloenv
 ```
-This statement will deactivate the `yolo11` environment and return you to your system's default environment. Remember, to install any necessary libraries or dependencies in the `yolo11` Conda environment, the environment must first be activated. This ensures that all installations and changes are applied specifically within the `yolo11` environment.
+This statement will deactivate the `yoloenv` environment and return you to your system's default environment. Remember, to install any necessary libraries or dependencies in the `yoloenv` Conda environment, the environment must first be activated. This ensures that all installations and changes are applied specifically within the `yoloenv` environment.
 ### Step 4: Install the Ultralytics YOLO Library
 Once your Conda environment is activated, the next step is to install the Ultralytics YOLO library. Ultralytics is the developer behind the YOLO models. By installing this library, you gain access to pre-trained YOLO models as well as the ability to train your own models with custom datasets.
 
@@ -218,13 +218,13 @@ To label and annotate data for YOLO (You Only Look Once) models, you need to use
 ### Step 1: Install LabelImg
 LabelImg is an open-source tool and you can install it easily using Conda Python Environemnts. First, activate your specific Conda Environment:
 ```bash
-  conda activate yolo11
+  conda activate yoloenv
 ```
 Once the Conda Environment is active, install LabelImg using the following command:
 ```bash
   pip install labelimg
 ```
-This will install the LabelImg package into your active `yolo11` Conda environment, allowing you to use it for annotating images for YOLO object detection.
+This will install the LabelImg package into your active `yoloenv` Conda environment, allowing you to use it for annotating images for YOLO object detection.
 ### Step 2: Launch LabelImg
 Once LabelImg is installed, you can launch it by running the following command in the active Conda Environment terminal:
 ```bash
@@ -301,7 +301,7 @@ To start training your custom YOLO model, follow these steps:
 ### 1. Activate the Conda Python Environment
 First, activate your Conda environment where the `ultralytics` library and other dependencies are installed. Run the following command in the **Anaconda Prompt** or **terminal**:
 ```bash
-  conda activate yolo11
+  conda activate yoloenv
 ```
 
 ### 2. Start the Training Process
