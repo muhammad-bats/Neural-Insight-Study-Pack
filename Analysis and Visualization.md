@@ -35,7 +35,7 @@ After obtaining your API credentials, ensure that the kaggle library is installe
 ```bash
   pip install kaggle
 ```
-> Refer to `Artificial Intelligence and Computer Vision` branch for more information on Conda Environments.
+> Refer to the `Artificial Intelligence and Computer Vision` branch for more information on Conda Environments.
 
 Once the library is installed, you can download a dataset from Kaggle using the following Python script:
 ```python
@@ -47,11 +47,13 @@ Once the library is installed, you can download a dataset from Kaggle using the 
 ```
 Replace `'dataset-owner/dataset-name'` with the appropriate Kaggle dataset identifier, and `'your/destination/folder'` with the local directory where you want the dataset to be saved. This script will download the dataset and automatically unzip it for use in your environment.
 
-For locally downloaded Datasets stored as CSV or Excel files, you can load them directly into Python using appropriate libraries like `pandas` for tabular data
+Downloaded Datasets stored as CSV or Excel files can then be loaded directly into your Python Environment using appropriate libraries like `pandas` for tabular data.
 ```python
   import pandas as pd
 
   # Load the CSV file
   data = pd.read_csv('path/to/your/dataset.csv')
 ```
-Once your Dataset is loaded into your Python Environment, you can use if for Data Analysis and Visualization.
+This Python code snippet utilizes the `pandas` library to load data from a CSV file into a DataFrame, which is a two-dimensional, size-mutable, and potentially heterogeneous tabular data structure with labeled axes (rows and columns). In pandas, a DataFrame is a primary data structure used for data manipulation and analysis. It allows for efficient data handling and provides various functionalities to analyze and manipulate the data.
+
+Once your Dataset is loaded into your Python Environment as a DataFrame, you can use it for Data Analysis and Visualization.
