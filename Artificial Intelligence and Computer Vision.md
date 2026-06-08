@@ -49,7 +49,7 @@ YOLO (You Only Look Once) is a state-of-the-art, real-time object detection algo
 
 YOLO models are deep learning models based on convolutional neural networks (CNNs), which excel at extracting hierarchical features from images. These models are trained on large datasets to learn patterns and representations that allow them to identify various objects within an image. By utilizing CNN architectures, YOLO can efficiently process and classify objects in a single pass, significantly speeding up the detection process compared to traditional methods. The model is designed to output both the class label and the precise location of each object in the form of bounding boxes, making it ideal for real-time applications such as autonomous driving, surveillance, and robotics.
 
-##**Setup**
+## **Setup**
 To set up and run a YOLO model, you need to use a Conda Python environment. First, you'll need to install the Anaconda distribution, which is a popular open-source package management system and environment management system for Python and R. Anaconda simplifies package management, dependency resolution, and creating isolated environments, which is especially useful for running complex models like YOLO.
 
 ### Step 1: Install Anaconda
